@@ -1,0 +1,207 @@
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    background-color: #f5f5f5;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    min-width: 360px;
+    display: grid;
+    grid-template-columns: 17rem 1fr;
+}
+
+header {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 1.5rem 3rem;
+    border-bottom: 2px solid gray;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+}
+
+header > div:nth-of-type(2) { font-size: 1.25rem; }
+
+.mailpic {
+    background-image: url(pics/mail.png);
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+}
+
+.account {
+    background-image: url(pics/account.png);
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+}
+
+hr {
+    border-width: 2px;
+}
+
+/* .menu */
+.menu {
+    margin: 1rem 1rem 0 3rem;
+}
+
+.menu > div {
+    display: flex;
+    align-items: center;
+    /* min-width: 7.5rem; */
+    padding: 0.75rem 1.5rem;
+    cursor: default;
+}
+
+.menu > div:hover {
+    background-color: #f4e5e5;
+}
+
+.incom, .outcom, .draft, .spam {
+    width: 2rem;
+    height: 2rem;
+    background-size: contain;
+}
+
+.incom {
+    background-image: url(pics/incom.png);
+}
+
+.outcom {
+    background-image: url(pics/outcom.png);
+}
+
+.draft {
+    background-image: url(pics/draft.png);
+}
+
+.spam {
+    background-image: url(pics/spam.png);
+}
+
+.menu-text {
+    padding: 0 0.5rem;
+}
+
+/* .correspondence */
+.correspondence {
+    margin: 1rem 3rem 0 0;
+}
+
+.mail {
+    display: grid;
+    grid-template-columns: 2rem 10rem 1fr 2rem 5rem;
+    gap: 0 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid darkgray;
+}
+
+.mail:hover {
+    background-color: #ededed;
+}
+
+.status {
+    background-image: url(pics/star1.svg);
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.mail:nth-of-type(4) > .status, .mail:nth-of-type(7) > .status, .mail:nth-of-type(8) > .status {
+    background-image: url(pics/star2.svg);
+}
+
+.sender, .topic, .date {
+    font-weight: 500;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.text {
+    color: gray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text:not(:empty)::before {
+    content: "\A0- ";
+}
+
+.attachments {
+    background-image: url(pics/attach_26.png);
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.mail:nth-of-type(3) > .attachments, .mail:nth-of-type(6) > .attachments, .mail:nth-of-type(7) > .attachments {
+    background-image: none;
+}
+
+@media (min-width: 1600px){
+
+    html { font-size: 18px; }
+
+}
+
+@media (max-width: 1200px) {
+
+    html { font-size: 14px; }
+
+    header { padding: 1rem 2rem; }
+
+    .menu { margin-left: 2rem; }
+
+    .correspondence { margin-right: 2rem; }
+
+}
+
+@media (max-width: 800px) {
+
+    html { font-size: 12px; }
+
+    /* .correspondence */
+    .mail { grid-template-columns: 1.5rem 1fr 4rem 6rem; }
+
+    .about {
+        grid-column: 2 / 4;
+        grid-row: 2/3;
+        grid-template-columns: auto;
+    }
+
+    .status { background-position: right 0 top 50%; }
+
+    .text::before { display: none; }
+}
+
+@media (max-width: 550px) {
+
+    body { grid-template-columns: 8rem 1fr; }
+
+    header > div:nth-of-type(2) { font-size: 1.1rem; }
+
+    .menu-text { display: none; }
+
+    /* .correspondence */
+    .mail {
+        grid-template-columns: 1.75rem 1fr 2rem 5rem;
+        gap: 0;
+    }
+
+    .status { background-position: right 30% top 50%; }
+
+    .date { padding-left: 1rem; }
+
+}
